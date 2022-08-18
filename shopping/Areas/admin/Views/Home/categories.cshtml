@@ -1,0 +1,44 @@
+﻿@model List<Category>
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Shop By Category</h2>
+        </div>
+        <div>
+            <h3>
+            <a href="/admin/categories/create">  CREATE NEW CAREGORY</a>
+            </h3>
+        </div>
+        <table class="table">
+                <tr>
+                        <th>NAME</th>
+                        <th>DESCRIPTION</th>
+                        <th>PHOTO</th>
+                      
+                </tr>
+                @foreach (var item in Model)
+                {
+                        <tr>
+                                <td>@item.Name</td>
+                                <td>@item.Description</td>
+                                <td>@item.Photo</td>
+                                <td> 
+                                        <a href="/admin/Home/ALLproduct/@item.Id">VIEW</a> |
+                                        <a href="/admin/categories/delete/@item.Id">DELETE</a> |
+                                        <a href="/admin/categories/edit/@item.Id">EDIT</a>
+                                </td>
+                                
+                        </tr>
+                }
+              
+        </table>
+
+      
+
+        
+  
+
+      </div>
+ </section><!-- End Services Section -->

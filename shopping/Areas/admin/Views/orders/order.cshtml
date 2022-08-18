@@ -1,0 +1,60 @@
+﻿@model List<Cart>
+
+
+<h1>Order Details</h1>
+<h2>Order @Model[0].Orderid</h2>
+<hr></hr>
+<div  class="container">
+	 <table class="table">
+                <tr>
+                        <th>Image</th>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                </tr>
+                
+                    
+                @foreach (var item in Model)
+                {
+                        <tr>
+                                <td><img src="~/assets/img/features.svg"></img></td>
+                                <td>@item.Productnamed</td>
+                                <td>@item.Qty</td>
+                                <td>@item.Price</td>
+                                <td>@Model.Where(x => x.Productid == item.Productid).Sum(x => x.Qty * x.Price)</td>
+                                
+                        </tr>
+                }
+                <tr>
+                        <td class="text-right" colspan="4">Grand Total: @Model[0].TotalPrice</td>
+                </tr>
+                
+               
+               
+                
+        </table>
+       @* <form asp-action="Index">
+   <div asp-validation-summary="ModelOnly" class="text-danger"></div>*@
+@*  <label asp-for="@Model[0].Photo">Choose a Status :</label>
+  <select class="form-select" aria-label="Default select example">
+    <option value="Done">Done</option>
+    <option value="Processing">Processing</option>
+  </select>
+  <input asp-for="@Model[0].Photo" type="submit" class="btn btn-primary">*@
+ 
+<form asp-action="order">
+    @*<input asp-for="@Model[0].Photo"  class="btn btn-primary" >
+    <input type="submit" class="btn btn-primary">*@
+     <label asp-for="@Model[0].Orderid"></label>
+     <input type="hidden"  asp-for="@Model[0].Orderid">
+   <label asp-for="@Model[0].Photo">Choose a Status :</label>
+  <select asp-for="@Model[0].Photo" class="form-select" aria-label="Default select example">
+    <option value="Done">Done</option>
+    <option  value="Processing">Processing</option>
+  </select>
+  <input  type="submit" class="btn btn-primary">
+
+</form>
+
+</div>

@@ -1,0 +1,43 @@
+﻿@model shopping.Models.Order
+
+<h4>Order</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Index">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+           
+            
+            <div class="form-group">
+                <label asp-for="CustomerName" class="control-label"></label>
+                <input asp-for="CustomerName" class="form-control" />
+                <span asp-validation-for="CustomerName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomerPhone" class="control-label"></label>
+                <input asp-for="CustomerPhone" class="form-control" />
+                <span asp-validation-for="CustomerPhone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomerEmail" class="control-label"></label>
+                <input asp-for="CustomerEmail" class="form-control" />
+                <span asp-validation-for="CustomerEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomerAdress" class="control-label"></label>
+                <input asp-for="CustomerAdress" class="form-control" />
+                <span asp-validation-for="CustomerAdress" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

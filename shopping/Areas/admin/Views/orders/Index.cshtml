@@ -1,0 +1,51 @@
+﻿@model List<Order>
+<h1>Orders List</h1>
+
+
+@if (Model.Count > 0)
+{
+    <div>
+        <h3>choose status:</h3>
+    </div>
+    <div>
+         <a href="/admin/orders/Ind/1">PROGRASS</a>
+    </div>
+  <div>
+      <a href="/admin/orders/Ind/2">DONE</a>
+  </div>
+   <hr></hr>
+ 
+  <h1>ALL Orders</h1>
+        <table class="table">
+                <tr>
+                        <th>Order Date</th>
+                        <th>Payment Type</th>
+                        <th>Status</th>
+                        <th>Customer Name</th>
+                        <th>Customer Phone</th>
+                        <th>Customer Email</th>
+                        <th>Customer Adress</th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                        <tr>
+                                <td>@item.Orderdate</td>
+                                <td>@item.PaymentType</td>
+                                <td>@item.Status</td>
+                                <td>@item.CustomerName</td>
+                                <td>@item.CustomerPhone</td>
+                                <td>@item.CustomerEmail</td>
+                                <td>@item.CustomerAdress</td>
+                                <td><a href="/admin/orders/order/@item.Orderid">Details</a></td>
+                        </tr>
+                }
+               
+                
+        </table>
+
+
+}
+else
+{
+        <h3 class="display-4 text-center">There is no Orders</h3>
+}

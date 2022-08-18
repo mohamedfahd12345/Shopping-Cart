@@ -1,0 +1,45 @@
+﻿@model CartViewModel
+
+@if (Model.CartItems.Count > 0)
+{
+        <table class="table">
+                <tr>
+                        <th>Image</th>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th></th>
+                        <th>Price</th>
+                        <th>Total</th>
+                </tr>
+                @foreach (var item in Model.CartItems)
+                {
+                        <tr>
+                                <td><img src="@item.Photo"></img></td>
+                                <td>@item.Productnamed</td>
+                                <td>@item.Qty</td>
+                                <td>
+                                        <a class="btn btn-primary btn-sm" href="/cart/add/@item.Productid">+</a>
+                                        <a class="btn btn-info btn-sm" href="/cart/decrease/@item.Productid" >-</a>
+                                        <a class="btn btn-danger btn-sm" href="/cart/Remove/@item.Productid">Remove</a>
+                                </td>
+                                <td>@item.Price</td>
+                                <td>@Model.CartItems.Where(x => x.Productid == item.Productid).Sum(x => x.Qty * x.Price)</td>
+                        </tr>
+                }
+                <tr>
+                        <td class="text-right" colspan="4">Grand Total: @Model.GrandTotal.ToString("C2")</td>
+                </tr>
+                <tr>
+                        <td class="text-right" colspan="4">
+                                <a class="btn btn-danger" href="/cart/Clear">Clear Cart</a>
+                                <a class="btn btn-primary" href="/checkout/Index">Checkout</a>
+                        </td>
+                </tr>
+        </table>
+
+
+}
+else
+{
+        <h3 class="display-4 text-center">Your cart is empty.</h3>
+}

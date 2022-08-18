@@ -1,0 +1,65 @@
+﻿@model Product
+  <main id="main">
+
+  
+    <!-- ======= Portfolio Details Section ======= -->
+    <section id="portfolio-details" class="portfolio-details">
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-8">
+            <div class="portfolio-details-slider swiper">
+              <div class="swiper-wrapper align-items-center">
+
+                <div class="swiper-slide">
+                  <img src="@Model.Photo" alt="">
+                </div>
+
+                <div class="swiper-slide">
+                  <img src="@Model.Photo" alt="">
+                </div>
+
+                <div class="swiper-slide">
+                  <img src="@Model.Photo" alt="">
+                </div>
+
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+           
+          <div class="col-lg-4">
+            <div class="portfolio-info">
+              <h3>Item information</h3>
+              <ul>
+                <li><strong>Title</strong>: @Model.Name</li>
+                <li><strong>price</strong>: $@Model.Price</li>
+              </ul>
+            </div>
+            <div class="portfolio-description">
+              <h2>About this item</h2>
+              <p>
+                  @Model.Description
+              </p>
+            </div>
+            
+           <br></br>
+            <div>
+               @*<a href="/Home/shoppingbag" class="btn btn-primary  " tabindex="-1" role="button" aria-disabled="true">ADD TO CART</a>*@
+               <th>
+                   <a href="/cart/add/@Model.Id" type="submit" class="btn btn-primary w-100">ADD TO CART</a>
+
+               </th>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Details Section -->
+
+  </main><!-- End #main -->
+
+
+
