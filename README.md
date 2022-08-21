@@ -12,7 +12,6 @@ c.	View products: Once user is logged into the, he/she may view all the added bo
 d.	Buy products: User can surf various book of their choice and buy them.
 e.	view categories: <br>
 f.	My cart: All the purchase history of user will be displayed with details.<br>
-h.	
 2.	Admin:<br>
 a.	View products: Admin can view all the products with their details.<br>
 b.	View User: All the registered user details will be displayed to the admin<br>
